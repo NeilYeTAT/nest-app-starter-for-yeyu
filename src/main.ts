@@ -1,4 +1,5 @@
 import type { NestFastifyApplication } from '@nestjs/platform-fastify'
+import { ConfigService } from '@nestjs/config'
 import { NestFactory } from '@nestjs/core'
 import { FastifyAdapter } from '@nestjs/platform-fastify'
 import { AppModule } from './app.module'
@@ -10,7 +11,8 @@ async function bootstrap() {
 
   app.setGlobalPrefix('api')
 
-  const PORT = process.env.PORT ?? 4040
+  const configService = app.get(ConfigService)
+  const PORT = configService.get<number>('SEVER_PORT', 4040)
 
   await app.listen(PORT, () => {
     // eslint-disable-next-line no-console
