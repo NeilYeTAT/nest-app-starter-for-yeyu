@@ -1,3 +1,3 @@
 export default {
-  '*.{js,ts}': 'eslint --max-warnings 0 --no-warn-ignored',
+  '*': 'biome check --max-diagnostics=100 --no-errors-on-unmatched --write',
 }

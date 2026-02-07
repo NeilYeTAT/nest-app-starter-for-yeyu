@@ -15,7 +15,7 @@ async function bootstrap() {
   const PORT = configService.get<number>('SEVER_PORT', 4040)
 
   await app.listen(PORT, () => {
-    // eslint-disable-next-line no-console
+    // biome-ignore lint/suspicious/noConsole: <ingore>
     console.log(`Nest app is running on http://localhost:${PORT}/api`)
   })
 }

@@ -7,14 +7,14 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format": "biome format --write .",
     "start": "nest start",
     "dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "typecheck": "tsc",
-    "lint": "eslint --max-warnings 0 .",
-    "lint:fix": "eslint --max-warnings 0 --fix .",
+    "lint": "biome check --max-diagnostics=100 .",
+    "lint:fix": "biome check --max-diagnostics=100 --write .",
     "prepare": "husky",
     "commit": "git-cz",
     "qwer": "git-cz"
@@ -29,10 +29,9 @@
     "rxjs": "^7.8.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.3.14",
     "@commitlint/cli": "^20.4.0",
     "@commitlint/config-conventional": "^20.4.1",
-    "@eslint/eslintrc": "^3.2.0",
-    "@eslint/js": "^9.18.0",
     "@nestjs/cli": "^11.0.16",
     "@nestjs/schematics": "^11.0.0",
     "@swc/cli": "^0.7.10",
@@ -40,21 +39,13 @@
     "@types/node": "^25.2.1",
     "commitizen": "^4.3.1",
     "cz-git": "^1.12.0",
-    "eslint": "^9.18.0",
-    "eslint-config-prettier": "^10.0.1",
-    "eslint-plugin-check-file": "^3.3.1",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-prettier": "^5.5.5",
-    "globals": "^17.0.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
-    "prettier": "^3.8.1",
     "source-map-support": "^0.5.21",
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.7.3",
-    "typescript-eslint": "^8.54.0"
+    "typescript": "^5.7.3"
   },
   "config": {
     "commitizen": {
